@@ -4,6 +4,14 @@ const studioEnv = {
   UV_TORCH_BACKEND: "{{gpu === 'nvidia' ? 'cu128' : ''}}"
 }
 
+const nodeEnv = {
+  ...studioEnv,
+  npm_config_audit: "false",
+  npm_config_fund: "false",
+  npm_config_loglevel: "error",
+  npm_config_update_notifier: "false"
+}
+
 module.exports = {
   run: [
     {
@@ -25,7 +33,7 @@ module.exports = {
     when: "{{exists('app')}}",
     method: "shell.run",
     params: {
-      env: studioEnv,
+      env: nodeEnv,
       path: "app/studio/frontend",
       message: [
         "npm install",
@@ -37,7 +45,7 @@ module.exports = {
     when: "{{exists('app')}}",
     method: "shell.run",
     params: {
-      env: studioEnv,
+      env: nodeEnv,
       path: "app/studio/backend/core/data_recipe/oxc-validator",
       message: [
         "npm install"
