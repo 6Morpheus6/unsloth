@@ -7,8 +7,7 @@ This launcher clones the `unslothai/unsloth` repository and runs Unsloth Studio 
 - Clones the upstream repository into `app/`
 - Builds the Studio frontend from `studio/frontend`
 - Installs the Studio Python stack into a local Pinokio venv at `env/`
-- Clones `llama.cpp` under `app/.unsloth/llama.cpp` for GGUF tooling support
-- Installs `conda-forge::llama.cpp` into an app-local conda prefix first, with source build fallback if needed
+- Installs and validates upstream prebuilt `llama.cpp` under `app/.unsloth/llama.cpp` for GGUF tooling support
 - Starts the Studio backend on `127.0.0.1` with an auto-assigned port
 - Keeps Unsloth Studio runtime data under `app/.unsloth/`
 
@@ -20,7 +19,7 @@ This launcher clones the `unslothai/unsloth` repository and runs Unsloth Studio 
 4. Sign in with username `unsloth` and the printed password.
 5. Change the password when prompted.
 
-The first install or update may still take longer than a normal Python-only setup because the launcher provisions GGUF tooling. It now prefers the `conda-forge` package for `llama.cpp`, and only falls back to a source build if that does not yield a usable `llama-server`.
+The first install or update may still take longer than a normal Python-only setup because the launcher provisions GGUF tooling. It uses Unsloth Studio's upstream prebuilt `llama.cpp` installer and validates `llama-server` before activation.
 
 The launcher keeps the cloned repo in `app/`. `Reset` removes the cloned repo and any launcher-created venv state.
 

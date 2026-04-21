@@ -1,7 +1,6 @@
 const studioEnv = {
   HOME: "{{path.resolve(cwd, 'app')}}",
-  USERPROFILE: "{{path.resolve(cwd, 'app')}}",
-  UV_TORCH_BACKEND: "{{gpu === 'nvidia' ? 'cu128' : ''}}"
+  USERPROFILE: "{{path.resolve(cwd, 'app')}}"
 }
 
 const nodeEnv = {
@@ -91,6 +90,7 @@ module.exports = {
       }
     },
     {
+      when: "{{platform === 'linux'}}",
       method: "shell.run",
       params: {
         venv: "../env",
@@ -98,7 +98,20 @@ module.exports = {
         env: studioEnv,
         path: "app",
         message: [
-          "python ../build_llama_cpp.py --skip-if-present"
+          "python studio/install_llama_prebuilt.py --install-dir .unsloth/llama.cpp --llama-tag latest --published-repo unslothai/llama.cpp --simple-policy"
+        ]
+      }
+    },
+    {
+      when: "{{platform === 'win32' || platform === 'darwin'}}",
+      method: "shell.run",
+      params: {
+        venv: "../env",
+        venv_python: "3.12",
+        env: studioEnv,
+        path: "app",
+        message: [
+          "python studio/install_llama_prebuilt.py --install-dir .unsloth/llama.cpp --llama-tag latest --published-repo ggml-org/llama.cpp --simple-policy"
         ]
       }
     }
