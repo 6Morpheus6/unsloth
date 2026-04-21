@@ -34,7 +34,7 @@ module.exports = {
         path: appPath,
         env: studioEnv,
         message: [
-          `uv pip install --force-reinstall --no-deps ${torchPackages} --index-url https://download.pytorch.org/whl/cu128`
+          `uv pip install --force-reinstall ${torchPackages} --index-url https://download.pytorch.org/whl/cu128`
         ]
       },
       next: null

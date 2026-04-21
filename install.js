@@ -1,6 +1,7 @@
 const studioEnv = {
   HOME: "{{path.resolve(cwd, 'app')}}",
-  USERPROFILE: "{{path.resolve(cwd, 'app')}}"
+  USERPROFILE: "{{path.resolve(cwd, 'app')}}",
+  UV_TORCH_BACKEND: "{{gpu === 'nvidia' ? 'cu128' : ''}}"
 }
 
 module.exports = {
@@ -12,17 +13,6 @@ module.exports = {
         message: [
           "git clone https://github.com/unslothai/unsloth app",
         ]
-      }
-    },
-    {
-      method: "script.start",
-      params: {
-        uri: "torch.js",
-        params: {
-          venv: "../env",
-          venv_python: "3.12",
-          path: "app"
-        }
       }
     },
     {
@@ -79,6 +69,17 @@ module.exports = {
           "python studio/install_python_stack.py",
           "uv pip install -e ."
         ]
+      }
+    },
+    {
+      method: "script.start",
+      params: {
+        uri: "torch.js",
+        params: {
+          venv: "../env",
+          venv_python: "3.12",
+          path: "app"
+        }
       }
     },
     {
