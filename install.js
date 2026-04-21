@@ -15,6 +15,17 @@ module.exports = {
       }
     },
     {
+      method: "script.start",
+      params: {
+        uri: "torch.js",
+        params: {
+          venv: "../env",
+          venv_python: "3.12",
+          path: "app"
+        }
+      }
+    },
+    {
       method: "shell.run",
       params: {
         env: studioEnv,

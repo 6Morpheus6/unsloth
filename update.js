@@ -66,6 +66,18 @@ module.exports = {
   },
   {
     when: "{{exists('app')}}",
+    method: "script.start",
+    params: {
+      uri: "torch.js",
+      params: {
+        venv: "../env",
+        venv_python: "3.12",
+        path: "app"
+      }
+    }
+  },
+  {
+    when: "{{exists('app')}}",
     method: "shell.run",
     params: {
       venv: "../env",
