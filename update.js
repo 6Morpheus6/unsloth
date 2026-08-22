@@ -107,7 +107,7 @@ module.exports = {
       env: studioEnv,
       path: "app",
       message: [
-        "python studio/install_llama_prebuilt.py --install-dir .unsloth/llama.cpp --llama-tag latest --published-repo unslothai/llama.cpp --simple-policy"
+        "python studio/install_llama_prebuilt.py --install-dir .unsloth/llama.cpp --llama-tag latest --published-repo unslothai/llama.cpp"
       ]
     }
   },
@@ -120,7 +120,7 @@ module.exports = {
       env: studioEnv,
       path: "app",
       message: [
-        "python studio/install_llama_prebuilt.py --install-dir .unsloth/llama.cpp --llama-tag latest --published-repo ggml-org/llama.cpp --simple-policy"
+        "python studio/install_llama_prebuilt.py --install-dir .unsloth/llama.cpp --llama-tag latest --published-repo ggml-org/llama.cpp"
       ]
     }
   }
