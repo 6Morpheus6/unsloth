@@ -12,6 +12,9 @@ const nodeEnv = {
 }
 
 module.exports = {
+  requires: {
+    bundle: "ai",
+  },
   run: [
     {
       when: "{{!exists('app')}}",
