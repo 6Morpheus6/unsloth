@@ -65,6 +65,17 @@ module.exports = {
       }
     },
     {
+      method: "script.start",
+      params: {
+        uri: "torch.js",
+        params: {
+          venv: "../env",
+          venv_python: "3.12",
+          path: "app"
+        }
+      }
+    },
+    {
       method: "shell.run",
       params: {
         venv: "../env",
@@ -76,17 +87,6 @@ module.exports = {
           "python studio/install_python_stack.py",
           "uv pip install -e ."
         ]
-      }
-    },
-    {
-      method: "script.start",
-      params: {
-        uri: "torch.js",
-        params: {
-          venv: "../env",
-          venv_python: "3.12",
-          path: "app"
-        }
       }
     },
     {
