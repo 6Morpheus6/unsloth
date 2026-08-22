@@ -90,7 +90,6 @@ module.exports = {
       }
     },
     {
-      when: "{{platform === 'linux'}}",
       method: "shell.run",
       params: {
         venv: "../env",
@@ -99,19 +98,6 @@ module.exports = {
         path: "app",
         message: [
           "python studio/install_llama_prebuilt.py --install-dir .unsloth/llama.cpp --llama-tag latest --published-repo unslothai/llama.cpp"
-        ]
-      }
-    },
-    {
-      when: "{{platform === 'win32' || platform === 'darwin'}}",
-      method: "shell.run",
-      params: {
-        venv: "../env",
-        venv_python: "3.12",
-        env: studioEnv,
-        path: "app",
-        message: [
-          "python studio/install_llama_prebuilt.py --install-dir .unsloth/llama.cpp --llama-tag latest --published-repo ggml-org/llama.cpp"
         ]
       }
     }
