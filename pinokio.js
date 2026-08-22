@@ -1,5 +1,5 @@
 module.exports = {
-  version: "5.0",
+  version: "8.0",
   title: "Unsloth Studio",
   description: "Run and train AI models with a unified local interface. https://github.com/unslothai/unsloth",
   menu: async (kernel, info) => {
