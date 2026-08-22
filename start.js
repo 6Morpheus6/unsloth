@@ -8,7 +8,8 @@ module.exports = {
         venv_python: "3.12",
         env: {
           HOME: "{{path.resolve(cwd, 'app')}}",
-          USERPROFILE: "{{path.resolve(cwd, 'app')}}"
+          USERPROFILE: "{{path.resolve(cwd, 'app')}}",
+          LOG_LEVEL: "WARNING"
         },
         path: "app/studio/backend",
         message: [
